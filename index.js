@@ -13,17 +13,11 @@ const ckInst = new Chatkit({
 const pushHelper = new PushHelper();
 const ckHelper = new ChatkitHelper(ckInst, pushHelper);
 
-/**
- * @type Date
- */
-let timer;
-
 Rx.Observable.merge(
     Rx.Observable.interval(config.pollingInterval * 1000),
     Rx.Observable.of(null)
 ).do(() => console.log('Launching new job'))
     .do(() => console.time('timer'))
-    .do(() => timer = new Date())
     .flatMap(() => ckHelper.getUsers())
     .flatMap(users => ckHelper.populateUsersWithRoomsAndMessages(users, config.messagesToLoad))
     .flatMap(users => ckHelper.populateUsersWithCursors(users))
