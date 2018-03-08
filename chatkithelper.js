@@ -33,8 +33,6 @@ export class ChatkitHelper {
             path: "/users/" + userId + "/rooms",
             jwt: this.chatkitInstance.getServerToken(),
         }).then(function (res) {
-            //console.log("response", res.body);
-
             return JSON.parse(res.body);
         }).catch(err => console.log(err)));
     }

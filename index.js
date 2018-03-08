@@ -1,7 +1,7 @@
 import Chatkit from 'pusher-chatkit-server';
-import Rx from 'rxjs/Rx';
 import {ChatkitHelper} from "./chatkithelper";
 import {PushHelper} from "./pushhelper";
+import Rx from "rxjs/Rx";
 
 const config = require('./config.json');
 
@@ -24,7 +24,7 @@ Rx.Observable.merge(
     .map(users => ckHelper.filterUsersRoomsAndMessages(users))
     .do(users => console.log('Should send push messages to ' + users.length + ' users'))
     .filter(users => {
-        if (users.length === 0){
+        if (users.length === 0) {
             console.timeEnd('timer');
         }
 
