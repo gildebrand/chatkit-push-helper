@@ -33,15 +33,15 @@ This is what the payload data sent from the script to the push endpoint looks li
 
 ```
 {
-	"notifications": [
-		{
-			"message": "You got 5 unread messages from Anton",
-			"user_id": 156,
-			"rooms": [
-				12345
-			]
-		}
-	]
+   "notifications":[
+      {
+         "message":"You got 5 unread messages from Anton",
+         "user_id":156,
+         "rooms":[
+            12345
+         ]
+      }
+   ]
 }
 ```
 
