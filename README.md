@@ -45,7 +45,7 @@ This is what the payload data sent from the script to the push endpoint looks li
 }
 ```
 
-To get this going you need to
+To get this helper application going you need to:
 - Set up your `config.json` file
 - Run `npm install`
 - Run `npm start run`. This will build the code using Babel and run it.
