@@ -3,7 +3,7 @@ import Rx from "rxjs/Rx";
 const request = require('request');
 
 export class ChatkitHelper {
-    constructor(chatkitInstance, pushHelperInstance) {
+    constructor(chatkitInstance, pushHelperInstance, apiVersion) {
         /**
          * @type Chatkit
          */
@@ -13,6 +13,12 @@ export class ChatkitHelper {
          * @type PushHelper
          */
         this.pushHelperInstance = pushHelperInstance;
+
+        /**
+         * API version (.e.g "v2")
+         * @type String
+         */
+        this.apiVersion = apiVersion;
     }
 
     /**
@@ -55,8 +61,8 @@ export class ChatkitHelper {
      */
     getUserCursors(userId) {
         return Rx.Observable.fromPromise(new Promise((resolve, reject) => {
-            const [_, apiVersion, location, instanceId] = this.chatkitInstance.instanceLocator.match(/^(v\d*):([a-z0-9]*):([a-f0-9\-]*)$/);
-            request('https://' + location + '.pusherplatform.io/services/chatkit_cursors/' + apiVersion + '/' + instanceId + '/cursors/0/users/' + userId, {
+            const [_, __, location, instanceId] = this.chatkitInstance.instanceLocator.match(/^(v\d*):([a-z0-9]*):([a-f0-9\-]*)$/);
+            request('https://' + location + '.pusherplatform.io/services/chatkit_cursors/' + this.apiVersion + '/' + instanceId + '/cursors/0/users/' + userId, {
                 headers: {
                     'Authorization': 'Bearer ' + this.chatkitInstance.getServerToken()
                 }
