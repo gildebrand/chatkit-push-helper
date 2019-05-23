@@ -9,7 +9,8 @@ To get started, you first need to create your `config.json` file. Below is an ex
   "messagesToLoad": 5,
   "chatkit": {
     "instanceLocator": "MY_INSTANCE_LOCATER_FROM_PUSHER_DASH",
-    "key": "MY_VERY_SECRET_KEY_FROM_PUSHER_DASH"
+    "key": "MY_VERY_SECRET_KEY_FROM_PUSHER_DASH",
+    "apiVersion": "v2"
   },
   "push": {
     "endpoint": "https://api.myapplication.com/v1/chatkit/push",
